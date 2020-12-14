@@ -16,17 +16,14 @@ class VentureCapitalist
     end
 
     def self.tres_commas_club
-        #binding.pry
        array = self.all.select do|vc| 
-       # binding.pry
-        vc.total_worth > 1000000000
+       vc.total_worth > 1000000000
        end
        array
     end
 end
+#binding.pry
 
 
-marc = VentureCapitalist.new("Marc", 1000)
 #VentureCapitalist.tres_commas_club
-binding.pry
-1
+#binding.pry

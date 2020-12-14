@@ -5,13 +5,13 @@ def reload
 end
 
 require 'pry'
-# Insert code here to run before hitting the binding.pry
-# This is a convenient place to define variables and/or set up new object instances,
-# so they will be available to test and play around with in your console
 
-
-
-
-
+marc = VentureCapitalist.new("Marc", 1000)
+abe = VentureCapitalist.new("Abe", 100000)
+mary = VentureCapitalist.new("Mary", 104000)
+apple = Startup.new("Apple", "Evan", "Apples")
+a = FundingRound.new(apple, abe, "Angel", 200)
+live_fast_die_young = Startup.new("live fast", "Marc", "Stuff")
+apple.sign_contract(abe, "Angel", 500)
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line

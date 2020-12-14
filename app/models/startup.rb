@@ -1,3 +1,5 @@
+require_relative 'venture_capitalist.rb'
+require_relative 'funding_round.rb'
 require 'pry'
 
 class Startup
@@ -32,9 +34,36 @@ class Startup
         array = self.all.map {|startup| startup.domain}
         array.uniq
     end
+
+    def sign_contract(vc, type, investment)
+        FundingRound.new(self, vc, type, investment)
+    end
+
+    def num_funding_rounds
+        FundingRound.all.count {|funding_round| funding_round.startup.name == self.name}
+    end
+
+    def total_funds
+        count = FundingRound.all.select {|funding_round| funding_round.startup == self}
+        count.sum {|startup| startup.investment}
+    end
+
+    def investors
+        startup_array = FundingRound.all.select {|funding_round| funding_round.startup == self}
+        vc_array = startup_array.map {|startup| startup.vc}
+        vc_array.uniq
+    end
+
+    def big_investors
+        startup_array = FundingRound.all.select {|funding_round| funding_round.startup == self}
+        vc_array = startup_array.map {|startup| startup.vc}
+            array = VentureCapitalist.tres_commas_club.each do |tcc|
+                vc_array.each select |vc| 
+                    tcc == vc
+            end
+        array
+    end
+    
 end
 
-apple = Startup.new("Apple", "Evan", "Apples")
-live_fast_die_die = Startup.new("live fast", "Marc", "Stuff")
-
-binding.pry
+#binding.pry
