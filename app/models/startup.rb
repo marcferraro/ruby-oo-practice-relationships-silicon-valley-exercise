@@ -63,7 +63,4 @@ class Startup
             end
         array
     end
-    
 end
-
-#binding.pry

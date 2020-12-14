@@ -19,5 +19,3 @@ class FundingRound
         @@all << self
     end
 end
-
-#binding.pry
